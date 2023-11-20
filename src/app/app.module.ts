@@ -3,16 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TachesService } from './services/taches.service';
+import { AccueilComponent } from './accueil/accueil.component';
+import { ModificationTacheComponent } from './modification-tache/modification-tache.component';
+import { SupprimerTacheComponent } from './supprimer-tache/supprimer-tache.component';
+import { AfficherDetailsTacheComponent } from './afficher-details-tache/afficher-details-tache.component';
+import { CreerTacheComponent } from './creer-tache/creer-tache.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccueilComponent,
+    CreerTacheComponent,
+    AfficherDetailsTacheComponent,
+    ModificationTacheComponent,
+    SupprimerTacheComponent,
+    HeaderComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [TachesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
