@@ -1,1 +1,22 @@
-<p>Créer Une Tache</p>
+
+<form [formGroup]="tacheForm"(ngSubmit)="creerTache()"></form>
+<label for="intitule">Intitulé de la Tâche *</label>
+<input type="text" id ="intitule" formControlName="intitule">
+
+<label for="dateDebut">Date de Création *</label>
+<input type="date" id ="dateDebut" formControlName="dateDebut">
+
+<label for="dateEcheance">Date D'écheance *</label>
+<input type="date" id ="dateEcheance" formControlName="dateEcheance">
+
+<label for="priorite">Priorité *</label>
+
+<select id ="priorite" formControlName="priorite">
+<option  value="haute">élevée</option>
+<option  value="moyenne">Moyenne</option>
+<option  value="basse">Faible</option>
+</select>
+<label for="description">Description *</label>
+<textarea id ="description" formControlName="description"></textarea>
+<button type="submit">Créer Tâche </button>
+
