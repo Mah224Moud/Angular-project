@@ -1,3 +1,15 @@
  <!-- app.component.html -->
+ <router-outlet></router-outlet>
 
-  
+ <!-- task-details.component.html -->
+ <div class="task-details">
+     <h1>{{ taskDetails.name }}</h1>
+     <p>Date de Création: {{ taskDetails.creationDate }}</p>
+     <p>Date d'Échéance: {{ taskDetails.dueDate }}</p>
+     <p>Description: {{ taskDetails.description }}</p>
+     <p>Priorité: {{ taskDetails.priority }}</p>
+     <p>Statut: {{ taskDetails.status }}</p>
+   
+     <button (click)="markAsDone()" [disabled]="taskDetails.status === 'Terminée'">Marquer comme Terminée</button>
+   </div>
+   
