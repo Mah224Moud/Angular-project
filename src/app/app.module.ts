@@ -25,11 +25,7 @@ import { ReactiveFormsModule} from '@angular/forms';
     ModificationTacheComponent,
     SupprimerTacheComponent,
     HeaderComponent,
-    
-  
-    
-
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
