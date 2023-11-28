@@ -1,24 +1,25 @@
 <h2>Créer une nouvelle tâche</h2>
 <div class="block-form">
-    <form >
-        <input type="text" name="newTaskName" placeholder="Nom de la tache" required><br>
-        <label>Priorité:
-          <select name="newTaskPriority" required>
-            <option value="low">faible</option>
-            <option value="medium">moyenne</option>
-            <option value="high">élevée</option>
-          </select>
-        </label><br>
-      <label>Date d'échéance:
-        <input type="datetime-local" name="newTaskDeadline" required>
-      </label> <br>
-      <label for="">
-        <textarea name="" placeholder="Description de la tache" cols="30" rows="10"></textarea>
-      </label><br>
-      <div class="btn">
-            <button type="reset">Annuler</button>
-            <button type="submit">Créer la tâche</button>
-      </div>
-    </form>
+  <form (ngSubmit)="onSubmit()">
+    <input type="text" name="newTaskName" [(ngModel)]="newTaskName" placeholder="Nom de la tâche" required><br>
+    <label>Priorité:
+      <select name="newTaskPriority" [(ngModel)]="newTaskPriority" required>
+        <option value="low">faible</option>
+        <option value="medium">moyenne</option>
+        <option value="high">élevée</option>
+      </select>
+    </label><br>
+    <label>Date d'échéance:
+      <input type="datetime-local" name="newTaskDeadline" [(ngModel)]="newTaskDeadline" required>
+    </label> <br>
+    <label for="">
+      <textarea name="newTaskDescription" [(ngModel)]="newTaskDescription" placeholder="Description de la tâche" cols="30" rows="10"></textarea>
+    </label><br>
+    <div class="btn">
+      <button type="reset">Annuler</button>
+      <button type="submit">Créer la tâche</button>
+    </div>
+  </form>
 </div>
+
   

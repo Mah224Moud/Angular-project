@@ -1,0 +1,14 @@
+nav{
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+}
+a{
+    text-decoration: none;
+    font-size: larger;
+}
+.others a{
+    margin: 0 10px;
+}
