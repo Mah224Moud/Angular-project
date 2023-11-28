@@ -1,0 +1,12 @@
+<div>
+    <h2>Liste des Tâches</h2>
+    <ol>
+      <li *ngFor="let task of tasks">
+        <div>
+            <h4>{{ task.getName() }}</h4> ({{ task.getPriority() }})
+        </div>
+        le {{task.getStart()}} - {{ task.getStatus() }}
+      </li>
+    </ol>
+</div>
+  
