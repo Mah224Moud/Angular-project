@@ -1,6 +1,6 @@
-<div>
+<div class="container">
     <h2>Liste des Tâches</h2>
-    <ol>
+    <!-- <ol>
       <li *ngFor="let task of tasks">
         <div>
             <h4>{{ task.getName() }}</h4> ({{ task.getPriority() }})
@@ -8,6 +8,28 @@
         le {{task.getStart()}} - {{ task.getStatus() }}
         and the id={{task.getId()}}
       </li>
-    </ol>
+    </ol> -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Début</th>
+          <th scope="col">Echéance</th>
+          <th scope="col">Priorité</th>
+          <th scope="col">Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <th scope="row">{{task.getId()}}</th>
+          <td>{{task.getName()}}</td>
+          <td>{{task.getStart()}}</td>
+          <td>{{task.getEnd()}}</td>
+          <td>{{task.getPriority()}}</td>
+          <td>{{task.getStatus()}}</td>
+        </tr>
+      </tbody>
+    </table>
 </div>
   
