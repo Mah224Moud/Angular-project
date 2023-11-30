@@ -1,4 +1,12 @@
 <h2>Créer une nouvelle tâche</h2>
+<div *ngIf="status" class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+</div>
+<div *ngIf="status === false" class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+</div>
 <div class="block-form">
   <form (ngSubmit)="onSubmit()">
     <input type="text" name="newTaskName" [(ngModel)]="newTaskName" placeholder="Nom de la tâche" required><br>
