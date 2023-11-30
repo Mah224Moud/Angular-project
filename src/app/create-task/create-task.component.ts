@@ -9,7 +9,7 @@ import { Task } from '../Task';
 export class CreateTaskComponent {
   @Output() taskCreated = new EventEmitter<Task>();
   newTaskName: string = '';
-  newTaskPriority: string = 'low';
+  newTaskPriority: string = 'faible';
   newTaskDeadline: string = '';
   newTaskDescription: string = '';
   id = 3;
@@ -34,7 +34,7 @@ export class CreateTaskComponent {
 
   resetForm() {
     this.newTaskName = '';
-    this.newTaskPriority = 'low';
+    this.newTaskPriority = 'faible';
     this.newTaskDeadline = '';
     this.newTaskDescription = '';
   }

@@ -15,12 +15,9 @@ export class DetailsComponent {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log('Task ID from URL:', typeof id);
     if (id) {
       const taskId = Number(id);
-      console.log('son nouveau type', typeof taskId);
       const task = this.taskService.getTaskById(taskId);
-      console.log('Task from service:', task);
       if (task) {
         this.task = task;
       } else {

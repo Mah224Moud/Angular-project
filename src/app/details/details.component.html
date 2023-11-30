@@ -1,8 +1,8 @@
 <div  *ngIf="task">
-
     <a routerLink="/home" fragment="{{task.getId()}}" class="text-decoration-none ms-3">
-        Home <span class="text-muted"><  {{ task.getName() }}</span>
-    </a>
+        Home </a>
+    <span class="text-muted"><  {{ task.getName() }}</span>
+    
     <div class="container mt-4">
         <div class="d-flex justify-content-center align-items-center">
             <h2 class="text-center">{{ task.getName() }}</h2>
@@ -18,8 +18,8 @@
         </div>
 
         <div class="text-center mt-4">
-            <button class="btn btn-outline-dark me-2" >Modifier</button>
-            <button class="btn btn-outline-dark">Supprimer</button>
+            <button class="btn btn-outline-dark m-1" [routerLink]="['/update-task', task.getId()]" >Modifier</button>
+            <button class="btn btn-outline-dark m-1" [routerLink]="['/update-task', task.getId()]">Supprimer</button>
         </div>
     </div>
 </div>

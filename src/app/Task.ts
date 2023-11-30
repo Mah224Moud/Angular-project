@@ -8,7 +8,7 @@ export class Task{
     private status: string;
     private level: number;
 
-    constructor(id: number, name: string, description: string, start: Date, end: Date, priority: string, level: number ,status: string ="Non commencé"){
+    constructor(id: number, name: string, description: string, start: Date, end: Date, priority: string, level: number ,status: string ="à faire"){
         this.id = id;
         this.name = name;
         this.description = description;
@@ -98,6 +98,9 @@ export class Task{
         const date = new Date(this.end);
         const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' } as const;
         return date.toLocaleDateString('fr-FR', options);
+    }
+    public getEndDateObject(): Date {
+        return new Date(this.end);
     }
     /**
      * Sets the end date of the given event.

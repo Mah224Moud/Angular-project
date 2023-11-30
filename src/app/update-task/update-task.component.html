@@ -1,0 +1,44 @@
+<div *ngIf="task">
+    <a routerLink="/home" fragment="{{task.getId()}}" class="text-decoration-none ms-3">Home</a> <
+    <a [routerLink]="['/details', task.getId()]" class="text-decoration-none">{{ task.getName() }}</a>
+    <span class="text-muted"> < update </span>
+
+    <div *ngIf="status" class="container mx-3 alert alert-success alert-dismissible fade show" role="alert">
+        {{ updateMessage }}
+        <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+    </div>
+    <div *ngIf="status === false" class="container mx-3 alert alert-danger alert-dismissible fade show" role="alert">
+        {{ updateMessage }}
+        <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+    </div>
+
+    <div class="block-form">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <input type="text" name="newTaskName" [(ngModel)]="taskName" placeholder="Nom de la tâche" required><br>
+            <label>Priorité:
+                <select name="newTaskPriority" [(ngModel)]="taskPriority" required>
+                    <option [value]="'faible'">faible</option>
+                    <option [value]="'moyenne'">moyenne</option>
+                    <option [value]="'élevée'">élevée</option>
+                </select>
+            </label><br>
+            <label for="">Status: 
+                <select name="newTaskStatus" [(ngModel)]="taskStatus" required>
+                    <option [value]="'à faire'">à faire</option>
+                    <option [value]="'en cours'">en cours</option>
+                    <option [value]="'terminée'">terminée</option>
+                </select>
+            </label><br>
+            <label>Date d'échéance:
+                <input type="datetime-local" [(ngModel)]="taskEnd" name="newTaskDeadline" required>
+            </label> <br>
+            <label for="">
+                <textarea name="newTaskDescription" [(ngModel)]="taskDescription" placeholder="Description de la tâche" cols="30" rows="10"></textarea>
+            </label><br>
+            <div class="btn">
+                <button type="reset" class="btn btn-outline-dark">Annuler</button>
+                <button type="submit" class="btn btn-outline-dark">Mettre à jour</button>
+            </div>
+        </form>
+    </div>
+</div>

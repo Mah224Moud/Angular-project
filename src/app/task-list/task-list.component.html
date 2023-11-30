@@ -1,32 +1,5 @@
 <div class="container">
     <h2>Liste des Tâches</h2>
-    <!-- <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Début</th>
-          <th scope="col">Echéance</th>
-          <th scope="col">Priorité</th>
-          <th scope="col">Statut</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let task of tasks" appHighlightRow (click)="onTaskClick(task)">
-          <th scope="row">{{task.getId()}}</th>
-          <td>{{task.getName()}}</td>
-          <td>{{task.getStart()}}</td>
-          <td>{{task.getEnd()}}</td>
-          <td>{{task.getPriority()}}</td>
-          <td>{{task.getStatus()}}</td>
-          <td>
-            <a [routerLink]="['/details', task.getId()]">voir plus</a>
-          </td> 
-            
-        </tr>
-      </tbody>
-    </table> -->
     <div class="d-flex flex-wrap justify-content-center">
       <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2" id="{{task.getId()}}">
         <div class="card-header">{{task.getStatus()}} - {{task.getPriority()}} </div>
