@@ -1,15 +1,6 @@
 <div class="container">
     <h2>Liste des Tâches</h2>
-    <!-- <ol>
-      <li *ngFor="let task of tasks">
-        <div>
-            <h4>{{ task.getName() }}</h4> ({{ task.getPriority() }})
-        </div>
-        le {{task.getStart()}} - {{ task.getStatus() }}
-        and the id={{task.getId()}}
-      </li>
-    </ol> -->
-    <table class="table table-striped">
+    <!-- <table class="table table-striped table-bordered">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -18,18 +9,40 @@
           <th scope="col">Echéance</th>
           <th scope="col">Priorité</th>
           <th scope="col">Statut</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let task of tasks">
+        <tr *ngFor="let task of tasks" appHighlightRow (click)="onTaskClick(task)">
           <th scope="row">{{task.getId()}}</th>
           <td>{{task.getName()}}</td>
           <td>{{task.getStart()}}</td>
           <td>{{task.getEnd()}}</td>
           <td>{{task.getPriority()}}</td>
           <td>{{task.getStatus()}}</td>
+          <td>
+            <a [routerLink]="['/details', task.getId()]">voir plus</a>
+          </td> 
+            
         </tr>
       </tbody>
-    </table>
+    </table> -->
+    <div class="d-flex flex-wrap justify-content-center">
+      <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2" id="{{task.getId()}}">
+        <div class="card-header">{{task.getStatus()}} - {{task.getPriority()}} </div>
+        <div class="card-body">
+          <h5 class="card-title">{{task.getName()}}</h5>
+          <p class="card-text">
+            {{task.getDescription()}}
+          </p>
+          <div class="text-center">
+            <a [routerLink]="['/details', task.getId()]" class="btn btn-outline-primary btn-sm">voir plus</a>
+          </div>
+        </div>
+        <div class="card-footer">
+          <small class="text-body-secondary">termine le, {{task.getEnd()}}</small>
+        </div>      
+      </div>
+    </div>
 </div>
   

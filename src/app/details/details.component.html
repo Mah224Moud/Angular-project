@@ -1,0 +1,25 @@
+<div  *ngIf="task">
+
+    <a routerLink="/home" fragment="{{task.getId()}}" class="text-decoration-none ms-3">
+        Home <span class="text-muted"><  {{ task.getName() }}</span>
+    </a>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-center align-items-center">
+            <h2 class="text-center">{{ task.getName() }}</h2>
+            <span class="ms-2 text-muted">
+                ({{ task.getStatus() }} - {{ task.getPriority() }})
+            </span>
+        </div>
+        <p class=>{{ task.getDescription() }}</p>
+
+        <div class="text-end text-muted d-flex flex-column">
+            <span>crée le, {{ task.getStart() }} </span>
+            <span>echéance le, {{ task.getEnd() }}</span>
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-outline-dark me-2" >Modifier</button>
+            <button class="btn btn-outline-dark">Supprimer</button>
+        </div>
+    </div>
+</div>

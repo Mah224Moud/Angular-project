@@ -76,7 +76,9 @@ export class Task{
      * @return {Date} The value of the start property.
      */
     public getStart(){
-        return this.start;
+        const date = new Date(this.start);
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' } as const;
+        return date.toLocaleDateString('fr-FR', options);
     }
     /**
      * Sets the start date.
@@ -93,7 +95,9 @@ export class Task{
      * @return {Date} The value of the `end` property.
      */
     public getEnd(){
-        return this.end;
+        const date = new Date(this.end);
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' } as const;
+        return date.toLocaleDateString('fr-FR', options);
     }
     /**
      * Sets the end date of the given event.

@@ -1,0 +1,17 @@
+.highlight-row {
+    background-color: yellow !important;
+}
+
+.highlight-row-clicked {
+    background-color: blue !important;
+}
+.card{
+    max-width: 18rem;
+    max-height: 18rem;
+}
+
+.card p{
+    max-height: 6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
