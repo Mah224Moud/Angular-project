@@ -11,12 +11,14 @@ import { TaskService } from '../shared/services/task.service';
 export class HomeComponent {
   tasks: Task[] = [];
   message : string = '';
+  statusMessage: string = '';
 
   constructor(private taskService: TaskService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.tasks = this.taskService.getAllTasks();
     this.messageService.currentMessage.subscribe(message => this.message = message);
+    this.messageService.currentStatusMessage.subscribe(statusMessage => this.statusMessage = statusMessage);
   }
   onTaskCreated(newTask: Task) {
     this.tasks.push(newTask);

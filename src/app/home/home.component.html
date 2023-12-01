@@ -5,6 +5,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="message = ''"></button>
     </div>
     <app-create-task (taskCreated)="onTaskCreated($event)"></app-create-task>
+    <div *ngIf="statusMessage !=='' " class="alert alert-success text-center alert-dismissible fade show" role="alert">
+        {{ statusMessage }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="statusMessage = ''"></button>
+    </div>
     <app-task-list [tasks]="tasks"></app-task-list>
 </div>
   

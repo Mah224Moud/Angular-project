@@ -33,6 +33,7 @@ export class CreateTaskComponent {
         0 
       );
 
+      this.taskCreated.emit(newTask);
       this.taskService.addTask(newTask);
       this.resetForm();
       this.status = true;

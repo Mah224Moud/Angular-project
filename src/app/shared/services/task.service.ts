@@ -14,7 +14,15 @@ export class TaskService {
 
   loadTasks() {
     if (localStorage.getItem('tasks')) {
-      this.tasks = JSON.parse(localStorage.getItem('tasks') || '[]').map((task: any) => new Task(task.id, task.name, task.description, new Date(task.start), new Date(task.end), task.priority, task.level));
+      this.tasks = JSON.parse(localStorage.getItem('tasks') || '[]').map((task: any) => new Task(
+        task.id,
+        task.name, 
+        task.description,
+        new Date(task.start), 
+        new Date(task.end), 
+        task.priority,
+        task.level, 
+        task.status));
     } else {
       this.http.get<Task[]>('assets/data/tasks.json').subscribe(data => {
         this.tasks = data;
@@ -28,29 +36,33 @@ export class TaskService {
   }
 
   getAllTasks(): Task[] {
-    return this.tasks;
+    return this.tasks.filter(task => task.getStatus() !== 'terminée');
   }
 
+  getCompletedTasks(): Task[] {
+    return this.tasks.filter(task => task.getStatus() === 'terminée');
+  }
+  
   getTaskById(id: number): Task | undefined {
     return this.tasks.find(task => task.getId() === id);
   }
 
   updateTask(id: number, updatedTask: any) {
-    const task = this.tasks.find(task => task.getId() === id);
-    if (task) {
-      task.setName(updatedTask.name);
-      task.setPriority(updatedTask.priority);
-      task.setStatus(updatedTask.status);
-      task.setEnd(updatedTask.end);
-      task.setDescription(updatedTask.description);
+    const index = this.tasks.findIndex(task => task.getId() === id);
+    if (index !== -1) {
+      this.tasks[index].setName(updatedTask.name);
+      this.tasks[index].setPriority(updatedTask.priority);
+      this.tasks[index].setStatus(updatedTask.status);
+      this.tasks[index].setEnd(updatedTask.end);
+      this.tasks[index].setDescription(updatedTask.description);
       this.saveTasks();
     }
   }
 
   updateTaskStatus(id: number, status: string) {
-    const task = this.tasks.find(task => task.getId() === id);
-    if (task) {
-      task.setStatus(status);
+    const index = this.tasks.findIndex(task => task.getId() === id);
+    if (index !== -1) {
+      this.tasks[index].setStatus(status);
       this.saveTasks();
     }
   }
