@@ -1,29 +1,23 @@
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">
+  <h2>Liste des Tâches terminée</h2>
+  <div class="d-flex flex-wrap justify-content-center">
+    <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2" id="{{task.getId()}}">
+      <div class="card-header text-center">
+        {{task.getStatus()}} - {{task.getPriority()}} 
+        <img src="../../assets/icons/patch-check-fill.svg" class="ms-1" title="Marquer la tâche comme terminée" alt="valid icon">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{task.getName()}}</h5>
+        <p class="card-text">
+          {{task.getDescription()}}
+        </p>
+        <div class="text-center">
+          <a [routerLink]="['/details', task.getId()]" class="btn btn-outline-primary btn-sm">voir plus</a>
+        </div>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">termine le, {{task.getEnd()}}</small>
+      </div>      
+    </div>
+  </div>
+</div>
