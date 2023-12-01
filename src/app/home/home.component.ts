@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Task } from '../Task';
+import { Task } from '../shared/models/Task';
+import { MessageService } from '../shared/services/message.service';
 import { TaskService } from '../shared/services/task.service';
 
 @Component({
@@ -9,11 +10,13 @@ import { TaskService } from '../shared/services/task.service';
 })
 export class HomeComponent {
   tasks: Task[] = [];
+  message : string = '';
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.tasks = this.taskService.getAllTasks();
+    this.messageService.currentMessage.subscribe(message => this.message = message);
   }
   onTaskCreated(newTask: Task) {
     this.tasks.push(newTask);

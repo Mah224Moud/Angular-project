@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { Task } from '../Task';
+import { Task } from '../shared/models/Task';
 
 @Component({
   selector: 'app-task-list',

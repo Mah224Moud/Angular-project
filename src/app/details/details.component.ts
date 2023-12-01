@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from '../Task';
+import { Task } from '../shared/models/Task';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from '../shared/services/task.service';
 
@@ -10,6 +10,7 @@ import { TaskService } from '../shared/services/task.service';
 })
 export class DetailsComponent {
   task?: Task;
+  openDeleteModal = false;
 
   constructor(private route: ActivatedRoute, private taskService: TaskService) { }
 

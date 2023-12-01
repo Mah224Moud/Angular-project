@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Task } from '../Task';
+import { Task } from '../shared/models/Task';
 import { TaskService } from '../shared/services/task.service';
 import { NgForm } from '@angular/forms';
 

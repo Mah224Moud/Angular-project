@@ -2,7 +2,7 @@
     <h2>Liste des Tâches</h2>
     <div class="d-flex flex-wrap justify-content-center">
       <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2" id="{{task.getId()}}">
-        <div class="card-header">{{task.getStatus()}} - {{task.getPriority()}} </div>
+        <div class="card-header text-center">{{task.getStatus()}} - {{task.getPriority()}} </div>
         <div class="card-body">
           <h5 class="card-title">{{task.getName()}}</h5>
           <p class="card-text">

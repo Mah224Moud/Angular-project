@@ -12,6 +12,7 @@ import { ArchivesComponent } from './archives/archives.component';
 import { HighlightRowDirective } from './shared/directives/highlight-row.directive';
 import { DetailsComponent } from './details/details.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
+import { DeleteTaskComponent } from './delete-task/delete-task.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UpdateTaskComponent } from './update-task/update-task.component';
     ArchivesComponent,
     HighlightRowDirective,
     DetailsComponent,
-    UpdateTaskComponent
+    UpdateTaskComponent,
+    DeleteTaskComponent
   ],
   imports: [
     BrowserModule,

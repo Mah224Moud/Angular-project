@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../../Task';
+import { Task } from '../models/Task';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,13 @@ export class TaskService {
       task.setStatus(updatedTask.status);
       task.setEnd(updatedTask.end);
       task.setDescription(updatedTask.description);
+    }
+  }
+
+  deleteTask(id: number) {
+    const index = this.tasks.findIndex(task => task.getId() === id);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
     }
   }
 }
