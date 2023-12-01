@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Task } from '../shared/models/Task';
+import { TaskService } from '../shared/services/task.service';
 
 @Component({
   selector: 'app-create-task',
@@ -12,16 +13,18 @@ export class CreateTaskComponent {
   newTaskPriority: string = 'faible';
   newTaskDeadline: string = '';
   newTaskDescription: string = '';
-  id = 3;
 
 
   status: boolean | undefined;
   message: string = '';
 
+  constructor(private taskService: TaskService) { }
+
   onSubmit() {
     if (this.newTaskName && this.newTaskPriority && this.newTaskDeadline) {
+      const id  = this.taskService.getLastId() + 1;
       const newTask = new Task(
-        this.id++,
+        id,
         this.newTaskName,
         this.newTaskDescription,
         new Date(), 
@@ -30,7 +33,7 @@ export class CreateTaskComponent {
         0 
       );
 
-      this.taskCreated.emit(newTask);
+      this.taskService.addTask(newTask);
       this.resetForm();
       this.status = true;
       this.message = 'La tâche a été créée avec succès.';

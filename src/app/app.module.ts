@@ -13,6 +13,7 @@ import { HighlightRowDirective } from './shared/directives/highlight-row.directi
 import { DetailsComponent } from './details/details.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
 import { DeleteTaskComponent } from './delete-task/delete-task.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DeleteTaskComponent } from './delete-task/delete-task.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
