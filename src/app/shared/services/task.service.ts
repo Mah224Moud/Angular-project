@@ -29,6 +29,13 @@ export class TaskService {
     }
   }
 
+  updateTaskStatus(id: number, status: string) {
+    const task = this.tasks.find(task => task.getId() === id);
+    if (task) {
+      task.setStatus(status);
+    }
+  }
+
   deleteTask(id: number) {
     const index = this.tasks.findIndex(task => task.getId() === id);
     if (index !== -1) {

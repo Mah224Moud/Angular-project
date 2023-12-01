@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Faire les courses",
+        "description": "Acheter des ingrédients pour le dîner",
+        "start": "2023-12-01T01:16:00.000Z",
+        "end": "2023-12-01T01:16:00.000Z",
+        "priority": "moyenne",
+        "status": "à faire",
+        "level": 1
+    },
+    {
+        "id": 2,
+        "name": "Répondre aux emails",
+        "description": "Répondre aux emails professionnels",
+        "start": "2023-12-01T01:16:00.000Z",
+        "end": "2023-12-01T01:16:00.000Z",
+        "priority": "élevée",
+        "status": "en cours",
+        "level": 2
+    }
+]
