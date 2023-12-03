@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Task } from '../models/Task';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
   tasks: Task[] = [];
+  private tasksUpdatedSource = new Subject<Task[]>();
+  public tasksUpdated$ = this.tasksUpdatedSource.asObservable();
 
   constructor(private http: HttpClient) {
     this.loadTasks();
@@ -69,6 +72,7 @@ export class TaskService {
 
   addTask(newTask: Task) {
     this.tasks.push(newTask);
+    this.tasksUpdatedSource.next(this.getAllTasks());
     this.saveTasks();
   }
 

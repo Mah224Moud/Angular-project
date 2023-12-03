@@ -18,4 +18,12 @@ export class MessageService {
   changeStatusMessage(statusMessage: string) {
     this.statusMessage.next(statusMessage);
   }
+
+  resetStatusMessage() {
+    this.statusMessage.next('');
+  }
+
+  resetMessage() {
+    this.messageSource.next('');
+  }
 }

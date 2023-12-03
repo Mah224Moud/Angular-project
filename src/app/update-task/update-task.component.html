@@ -3,11 +3,11 @@
     <a [routerLink]="['/details', task.getId()]" class="text-decoration-none">{{ task.getName() }}</a>
     <span class="text-muted"> < update </span>
 
-    <div *ngIf="status" class="container mx-3 alert alert-success alert-dismissible fade show" role="alert">
+    <div *ngIf="status" class="container text-center alert alert-success alert-dismissible fade show" role="alert">
         {{ updateMessage }}
         <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
     </div>
-    <div *ngIf="status === false" class="container mx-3 alert alert-danger alert-dismissible fade show" role="alert">
+    <div *ngIf="status === false" class="container text-center alert alert-danger alert-dismissible fade show" role="alert">
         {{ updateMessage }}
         <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
     </div>
@@ -39,6 +39,7 @@
                 <button type="reset" class="btn btn-outline-dark">Annuler</button>
                 <button type="submit" class="btn btn-outline-dark">Mettre à jour</button>
             </div>
+            <p class="text-center text-muted">* Tous les champs sont obligatoires sauf la description</p>
         </form>
     </div>
 </div>

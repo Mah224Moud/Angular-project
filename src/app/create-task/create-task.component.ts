@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Task } from '../shared/models/Task';
 import { TaskService } from '../shared/services/task.service';
+import { MessageService } from '../shared/services/message.service';
 
 @Component({
   selector: 'app-create-task',
@@ -14,11 +15,10 @@ export class CreateTaskComponent {
   newTaskDeadline: string = '';
   newTaskDescription: string = '';
 
+status: boolean | undefined;
+errorMessage: string = '';
 
-  status: boolean | undefined;
-  message: string = '';
-
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private messageService: MessageService) { }
 
   onSubmit() {
     if (this.newTaskName && this.newTaskPriority && this.newTaskDeadline) {
@@ -37,10 +37,10 @@ export class CreateTaskComponent {
       this.taskService.addTask(newTask);
       this.resetForm();
       this.status = true;
-      this.message = 'La tâche a été créée avec succès.';
+      this.messageService.changeMessage(newTask.getName() + " a été ajoutée avec succès.");
     } else {
       this.status = false;
-      this.message = 'Veuillez remplir tous les champs.';
+      this.errorMessage = "Veuillez remplir tous les champs.";
     }
   }
 

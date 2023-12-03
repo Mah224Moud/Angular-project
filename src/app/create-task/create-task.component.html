@@ -1,33 +1,32 @@
-<h2>Créer une nouvelle tâche</h2>
-<div *ngIf="status" class="alert alert-success text-center alert-dismissible fade show" role="alert">
-  {{ message }}
-  <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
-</div>
-<div *ngIf="status === false" class="alert alert-danger text-center alert-dismissible fade show" role="alert">
-  {{ message }}
-  <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
-</div>
-<div class="block-form">
-  <form (ngSubmit)="onSubmit()">
-    <input type="text" name="newTaskName" [(ngModel)]="newTaskName" placeholder="Nom de la tâche" required><br>
-    <label>Priorité:
-      <select name="newTaskPriority" [(ngModel)]="newTaskPriority" required>
-        <option value="faible">faible</option>
-        <option value="moyenne">moyenne</option>
-        <option value="élevée">élevée</option>
-      </select>
-    </label><br>
-    <label>Date d'échéance:
-      <input type="datetime-local" name="newTaskDeadline" [(ngModel)]="newTaskDeadline" required>
-    </label> <br>
-    <label for="">
-      <textarea name="newTaskDescription" [(ngModel)]="newTaskDescription" placeholder="Description de la tâche" cols="30" rows="10"></textarea>
-    </label><br>
-    <div class="btn">
-      <button type="reset" class="btn btn-outline-dark">Annuler</button>
-      <button type="submit" class="btn btn-outline-dark">Créer la tâche</button>
+<div>
+  <h2>Créer une nouvelle tâche</h2>
+    <div *ngIf="status === false" class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+      {{ errorMessage }}
+      <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
     </div>
-  </form>
-</div>
+    <div class="block-form">
+      <form (ngSubmit)="onSubmit()">
+        <input type="text" name="newTaskName" [(ngModel)]="newTaskName" placeholder="Nom de la tâche" required><br>
+        <label>Priorité:
+          <select name="newTaskPriority" [(ngModel)]="newTaskPriority" required>
+            <option value="faible">faible</option>
+            <option value="moyenne">moyenne</option>
+            <option value="élevée">élevée</option>
+          </select>
+        </label><br>
+        <label>Date d'échéance:
+          <input type="datetime-local" name="newTaskDeadline" [(ngModel)]="newTaskDeadline" required>
+        </label> <br>
+        <label for="">
+          <textarea name="newTaskDescription" [(ngModel)]="newTaskDescription" placeholder="Description de la tâche" cols="30" rows="10"></textarea>
+        </label><br>
+        <div class="btn">
+          <button type="reset" class="btn btn-outline-dark">Annuler</button>
+          <button type="submit" class="btn btn-outline-dark">Créer la tâche</button>
+        </div>
+        <p class="text-center text-muted">* Tous les champs sont obligatoires sauf la description</p>
+      </form>
+    </div>
+</div>  
 
-  
+    

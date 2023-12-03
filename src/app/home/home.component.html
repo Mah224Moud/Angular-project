@@ -1,13 +1,12 @@
-<div>
-
-    <div *ngIf="message !=='' " class="alert alert-success text-center alert-dismissible fade show" role="alert">
+<div class="">
+    <div *ngIf="message && message !=='' " class="alert alert-success text-center alert-dismissible fade show" role="alert">
         {{ message }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="message = ''"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeMessage()"></button>
     </div>
     <app-create-task (taskCreated)="onTaskCreated($event)"></app-create-task>
-    <div *ngIf="statusMessage !=='' " class="alert alert-success text-center alert-dismissible fade show" role="alert">
+    <div *ngIf="statusMessage !=='' " class="mx-4 alert alert-success text-center alert-dismissible fade show" role="alert">
         {{ statusMessage }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="statusMessage = ''"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeStatusMessage()"></button>
     </div>
     <app-task-list [tasks]="tasks"></app-task-list>
 </div>
