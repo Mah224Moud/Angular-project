@@ -1,7 +1,17 @@
 <div class="container">
     <h2>Liste des Tâches</h2>
+    <form>
+      <label for="tri">Trier par:
+      <select>
+          <option disabled selected>--Veuillez selectionner une option--</option>
+          <option (click)="sortDate()">Date</option>
+          <option (click)="sortPriority()">Priorité</option>
+          <option (click)="sortSatut()">Statut</option>
+      </select>
+    </label>
+    </form>
     <div class="d-flex flex-wrap justify-content-center">
-      <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2" id="{{task.getId()}}">
+      <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2">
         <div class="card-header text-center">
           {{task.getStatus()}} - {{task.getPriority()}} 
           <img src="../../assets/icons/patch-check.svg" class="ms-1 btn" title="Marquer la tâche comme terminée" alt="valid icon" (click)="onTaskStatusClick(task)">
