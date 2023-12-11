@@ -22,13 +22,9 @@
                     <option [value]="'élevée'">élevée</option>
                 </select>
             </label><br>
-            <label for="">Status: 
-                <select name="newTaskStatus" [(ngModel)]="taskStatus" required>
-                    <option [value]="'à faire'">à faire</option>
-                    <option [value]="'en cours'">en cours</option>
-                    <option [value]="'terminée'">terminée</option>
-                </select>
-            </label><br>
+            <label for="">Date de debut:
+                <input type="datetime-local" name="newTaskStartTime" [(ngModel)]="taskStart" required>
+              </label><br>
             <label>Date d'échéance:
                 <input type="datetime-local" [(ngModel)]="taskEnd" name="newTaskDeadline" required>
             </label> <br>

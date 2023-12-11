@@ -16,6 +16,7 @@ export class UpdateTaskComponent {
   taskEnd: string | undefined;
   taskPriority: string | undefined;
   taskStatus: string | undefined;
+  taskStart: string | undefined;
 
   constructor(private route: ActivatedRoute, private taskService: TaskService) { }
 
@@ -28,6 +29,7 @@ export class UpdateTaskComponent {
         this.taskDescription = this.task.getDescription();
         this.taskPriority = this.task.getPriority();
         this.taskEnd = this.task.getEndDateObject().toISOString().substring(0, 16);
+        this.taskStart = this.task.getStartDateObject().toISOString().substring(0, 16);
         this.taskStatus = this.task.getStatus();
       } else {
         console.log('Task not found');
@@ -39,16 +41,28 @@ export class UpdateTaskComponent {
   status : boolean | undefined;
 
   onSubmit(form: NgForm) {
-    if (form.valid && this.task && this.taskEnd) {
-      this.taskService.updateTask(this.task.getId(), {
-        name: this.taskName,
-        priority: this.taskPriority,
-        status: this.taskStatus,
-        end: new Date(this.taskEnd),
-        description: this.taskDescription
-      });
-      this.status = true;
-      this.updateMessage = 'La tâche a été mise à jour avec succès.';
+    const now = new Date();
+    let endDate;
+
+    if (this.taskEnd) {
+      endDate = new Date(this.taskEnd);
+    }
+
+    if (form.valid && this.task && this.taskEnd && this.taskStart && endDate) {
+      if (endDate >= now) {
+        this.taskService.updateTask(this.task.getId(), {
+          name: this.taskName,
+          priority: this.taskPriority,
+          end: endDate,
+          start: new Date(this.taskStart),
+          description: this.taskDescription
+        });
+        this.status = true;
+        this.updateMessage = 'La tâche a été mise à jour avec succès.';
+      } else {
+        this.status = false;
+        this.updateMessage = 'La date de fin est passée. Veuillez choisir une date future.';
+      }
     } else {
       this.status = false;
       this.updateMessage = 'Veuillez remplir tous les champs.';

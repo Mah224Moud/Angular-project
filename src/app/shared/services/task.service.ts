@@ -61,6 +61,7 @@ export class TaskService {
       this.tasks[index].setPriority(updatedTask.priority);
       this.tasks[index].setStatus(updatedTask.status);
       this.tasks[index].setEnd(updatedTask.end);
+      this.tasks[index].setStart(updatedTask.start);
       this.tasks[index].setDescription(updatedTask.description);
       this.saveTasks();
     }
