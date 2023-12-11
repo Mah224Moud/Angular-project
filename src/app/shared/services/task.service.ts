@@ -39,6 +39,10 @@ export class TaskService {
   }
 
   getAllTasks(): Task[] {
+    this.tasks.forEach(task => {
+      this.checkAndUpdateTaskStatus(task);
+    });
+
     return this.tasks.filter(task => task.getStatus() !== 'terminée');
   }
 
@@ -85,6 +89,20 @@ export class TaskService {
     if (index !== -1) {
       this.tasks.splice(index, 1);
       this.saveTasks();
+    }
+  }
+
+  checkAndUpdateTaskStatus(task: Task) {
+    const now = new Date();
+    const taskStartDate = task.getStartDateObject();
+    const taskEndDate = task.getEndDateObject();
+
+    if (taskEndDate < now) {
+      this.updateTaskStatus(task.getId(), 'terminée');
+    } else if (taskStartDate <= now && taskEndDate > now) {
+      this.updateTaskStatus(task.getId(), 'en cours');
+    } else if (taskStartDate > now) {
+      this.updateTaskStatus(task.getId(), 'à faire');
     }
   }
 }

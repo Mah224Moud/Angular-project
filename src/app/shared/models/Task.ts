@@ -83,7 +83,7 @@ export class Task{
 
 
     public getStartDateObject(): Date {
-        return new Date(this.end);
+        return new Date(this.start);
     }
     /**
      * Sets the start date.
