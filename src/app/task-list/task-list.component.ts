@@ -24,9 +24,10 @@ export class TaskListComponent {
 
   sortDate(){
     this.tasks.sort((a, b) => {
-      const dateA = new Date(a.getEnd());
-      const dateB = new Date(b.getEnd());
+      const dateA = new Date(a.getEndDateObject());
+      const dateB = new Date(b.getEndDateObject());
       return dateA.getTime() - dateB.getTime();
+     
     });
   }
 

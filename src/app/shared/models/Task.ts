@@ -80,6 +80,11 @@ export class Task{
         const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' } as const;
         return date.toLocaleDateString('fr-FR', options);
     }
+
+
+    public getStartDateObject(): Date {
+        return new Date(this.end);
+    }
     /**
      * Sets the start date.
      *
