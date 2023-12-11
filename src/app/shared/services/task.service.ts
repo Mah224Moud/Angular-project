@@ -67,10 +67,13 @@ export class TaskService {
     }
   }
 
-  updateTaskStatus(id: number, status: string) {
+  updateTaskStatus(id: number, status: string, done: boolean = false) {
     const index = this.tasks.findIndex(task => task.getId() === id);
     if (index !== -1) {
       this.tasks[index].setStatus(status);
+      if (done) {
+        this.tasks[index].setEnd(new Date());
+      }
       this.saveTasks();
     }
   }

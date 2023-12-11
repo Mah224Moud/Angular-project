@@ -18,8 +18,8 @@
         </div>
 
         <div class="text-center mt-4">
-            <button class="btn btn-success m-1" [routerLink]="['/update-task', task.getId()]" >Modifier</button>
-            <button class="btn btn-danger m-1" (click)="openDeleteModal = true">Supprimer</button>
+            <button class="btn btn-outline-dark m-1" [routerLink]="['/update-task', task.getId()]" >Modifier</button>
+            <button class="btn btn-outline-dark m-1" (click)="openDeleteModal = true">Supprimer</button>
             <app-delete-task #deleteTaskComponent [task]="task" [open]="openDeleteModal" (closed)="openDeleteModal = false"></app-delete-task>
         </div>
     </div>

@@ -17,7 +17,7 @@ export class TaskListComponent {
   
   onTaskStatusClick(task: Task) {
     this.selectedTask = task;
-    this.taskService.updateTaskStatus(task.getId(), "terminée");
+    this.taskService.updateTaskStatus(task.getId(), "terminée", true);
     this.messageService.changeStatusMessage(task.getName() + ' a été marquée comme terminée.');
     this.tasks = this.tasks.filter(t => t.getId() !== task.getId());
   }
