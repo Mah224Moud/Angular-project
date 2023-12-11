@@ -40,9 +40,27 @@ export class TaskListComponent {
 
   sortSatut(){ 
     this.tasks.sort((a, b) => {
-      const status = [ 'en cours', 'terminée'];
+      const status = [ 'en cours', 'à faire'];
       return status.indexOf(a.getStatus()) - status.indexOf(b.getStatus());
     });
+  }
+
+  onSortChange(event: any) {
+    const value = event.target.value;
+    switch(value) {
+      case 'date':
+        this.sortDate();
+        break;
+      case 'priority':
+        this.sortPriority();
+        break;
+      case 'status':
+        this.sortSatut();
+        break;
+      default:
+        this.sortDate();
+        break;
+    }
   }
 
 }

@@ -2,13 +2,13 @@
     <h2 class="text-center">Mes tâches</h2>
     <form>
       <label for="tri">Trier par:
-      <select>
-          <option disabled selected>--Veuillez selectionner une option--</option>
-          <option (click)="sortDate()">Date</option>
-          <option (click)="sortPriority()">Priorité</option>
-          <option (click)="sortSatut()">Statut</option>
+      <select (change)="onSortChange($event)">
+          <option value="" disabled selected>--Veuillez selectionner une option--</option>
+          <option value="date">Date</option>
+          <option value="priority">Priorité</option>
+          <option value="status">Statut</option>
       </select>
-    </label>
+      </label>
     </form>
     <div class="d-flex flex-wrap justify-content-center">
       <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2">
