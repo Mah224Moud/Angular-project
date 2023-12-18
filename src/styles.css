@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+footer img{
+    width: 25px;
+    height: 25px;
+}
+footer{
+    width: 100%;
+    border-top: red 1px solid;
+}
+
+#contributeur ul {
+    list-style: none;
+}
+ul li a{
+    text-decoration: none;
+}

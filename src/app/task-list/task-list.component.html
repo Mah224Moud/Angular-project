@@ -11,7 +11,7 @@
       </label>
     </form>
     <div class="d-flex flex-wrap justify-content-center">
-      <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2">
+      <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-danger m-2">
         <div class="card-header text-center">
           {{task.getStatus()}} - {{task.getPriority()}} 
           <img src="../../assets/icons/patch-check.svg" class="ms-1 btn" title="Marquer la tâche comme terminée" alt="valid icon" (click)="onTaskStatusClick(task)">
