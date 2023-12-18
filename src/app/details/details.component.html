@@ -1,7 +1,7 @@
-<div  *ngIf="task">
-    <a routerLink="/home" fragment="{{task.getId()}}" class="text-decoration-none ms-3">
+<div  *ngIf="task" class="text-light global">
+    <a routerLink="/home" fragment="{{task.getId()}}" class="text-decoration-none text-light ms-3">
         Home </a>
-    <span class="text-muted"><  {{ task.getName() }}</span>
+    <span class="text-secondary"><  {{ task.getName() }}</span>
 
     <div class="container mt-4">
         <div class="d-flex justify-content-center align-items-center">
@@ -12,14 +12,14 @@
         </div>
         <p class=>{{ task.getDescription() }}</p>
 
-        <div class="text-end text-muted d-flex flex-column">
+        <div class="text-end text-secondary d-flex flex-column">
             <span>debut le, {{ task.getStart() }} </span>
             <span>echéance le, {{ task.getEnd() }}</span>
         </div>
 
         <div class="text-center mt-4">
-            <button class="btn btn-outline-dark m-1" [routerLink]="['/update-task', task.getId()]" >Modifier</button>
-            <button class="btn btn-outline-dark m-1" (click)="openDeleteModal = true">Supprimer</button>
+            <button class="btn btn-outline-light m-1" [routerLink]="['/update-task', task.getId()]" >Modifier</button>
+            <button class="btn btn-outline-light m-1" (click)="openDeleteModal = true">Supprimer</button>
             <app-delete-task #deleteTaskComponent [task]="task" [open]="openDeleteModal" (closed)="openDeleteModal = false"></app-delete-task>
         </div>
     </div>

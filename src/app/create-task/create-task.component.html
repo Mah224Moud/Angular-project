@@ -1,4 +1,4 @@
-<div>
+<div class="text-light">
   <h2>Créer une nouvelle tâche</h2>
     <div *ngIf="status === false" class="alert alert-danger text-center alert-dismissible fade show" role="alert">
       {{ errorMessage }}
@@ -6,7 +6,7 @@
     </div>
     <div class="block-form">
       <form (ngSubmit)="onSubmit()">
-        <input type="text" name="newTaskName" [(ngModel)]="newTaskName" placeholder="Nom de la tâche" required><br>
+        <input type="text" class="" name="newTaskName" [(ngModel)]="newTaskName" placeholder="Nom de la tâche" required><br>
         <label>Priorité:
           <select name="newTaskPriority" [(ngModel)]="newTaskPriority" required>
             <option value="faible">faible</option>
@@ -24,10 +24,10 @@
           <textarea name="newTaskDescription" [(ngModel)]="newTaskDescription" placeholder="Description de la tâche" cols="30" rows="10"></textarea>
         </label><br>
         <div class="btn">
-          <button type="reset" class="btn btn-outline-dark">Annuler</button>
-          <button type="submit" class="btn btn-outline-dark">Créer la tâche</button>
+          <button type="reset" class="btn btn-outline-light">Annuler</button>
+          <button type="submit" class="btn btn-outline-light">Créer la tâche</button>
         </div>
-        <p class="text-center text-muted">* Tous les champs sont obligatoires sauf la description</p>
+        <p class="text-center text-secondary">* Tous les champs sont obligatoires sauf la description</p>
       </form>
     </div>
 </div>  

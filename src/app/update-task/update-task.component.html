@@ -1,8 +1,8 @@
-<div *ngIf="task">
-    <a routerLink="/home" fragment="{{task.getId()}}" class="text-decoration-none ms-3">Home</a> <
-    <a [routerLink]="['/details', task.getId()]" class="text-decoration-none">{{ task.getName() }}</a>
-    <span class="text-muted"> < update </span>
-
+<div *ngIf="task" class="text-light global">
+    <a routerLink="/home" fragment="{{task.getId()}}" class="text-decoration-none text-light ms-3">Home</a> <
+    <a [routerLink]="['/details', task.getId()]" class="text-decoration-none text-light">{{ task.getName() }}</a>
+    <span class="text-secondary"> < update </span>
+    <h1 class="text-center">Modifier la tache</h1>
     <div *ngIf="status" class="container text-center alert alert-success alert-dismissible fade show" role="alert">
         {{ updateMessage }}
         <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
@@ -32,10 +32,10 @@
                 <textarea name="newTaskDescription" [(ngModel)]="taskDescription" placeholder="Description de la tâche" cols="30" rows="10"></textarea>
             </label><br>
             <div class="btn">
-                <button type="reset" class="btn btn-outline-dark">Annuler</button>
-                <button type="submit" class="btn btn-outline-dark">Mettre à jour</button>
+                <button type="reset" class="btn btn-outline-light">Annuler</button>
+                <button type="submit" class="btn btn-outline-light">Mettre à jour</button>
             </div>
-            <p class="text-center text-muted">* Tous les champs sont obligatoires sauf la description</p>
+            <p class="text-center text-secondary">* Tous les champs sont obligatoires sauf la description</p>
         </form>
     </div>
 </div>

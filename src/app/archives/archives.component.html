@@ -1,27 +1,28 @@
-
-<a routerLink="/home" class="text-decoration-none ms-3">
-  Home </a>
-<span class="text-muted"><  Archives</span>
-<div class="container">
-  <h2>Liste des Tâches terminée</h2>
-  <div class="d-flex flex-wrap justify-content-center">
-    <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2" id="{{task.getId()}}">
-      <div class="card-header text-center">
-        {{task.getStatus()}} - {{task.getPriority()}} 
-        <img src="../../assets/icons/patch-check-fill.svg" class="ms-1" title="Marquer la tâche comme terminée" alt="valid icon">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">{{task.getName()}}</h5>
-        <p class="card-text">
-          {{task.getDescription()}}
-        </p>
-        <div class="text-center">
-          <a [routerLink]="['/details', task.getId()]" class="btn btn-outline-primary btn-sm">voir plus</a>
+<div class="text-light global">
+  <a routerLink="/home" class="text-decoration-none text-light ms-3">
+    Home </a>
+  <span class="text-secondary"><  Archives</span>
+  <div class="container">
+    <h2 class="">Liste des Tâches terminée</h2>
+    <div class="d-flex flex-wrap justify-content-center">
+      <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-dark m-2" id="{{task.getId()}}">
+        <div class="card-header text-center">
+          {{task.getStatus()}} - {{task.getPriority()}} 
+          <img src="../../assets/icons/patch-check-fill.svg" class="ms-1" title="Cette tâche comme été marquée terminée" alt="valid icon">
         </div>
+        <div class="card-body">
+          <h5 class="card-title">{{task.getName()}}</h5>
+          <p class="card-text">
+            {{task.getDescription()}}
+          </p>
+          <div class="text-center">
+            <a [routerLink]="['/details', task.getId()]" class="btn btn-outline-primary btn-sm">voir plus</a>
+          </div>
+        </div>
+        <div class="card-footer">
+          <small class="text-body-secondary">termine le, {{task.getEnd()}}</small>
+        </div>      
       </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">termine le, {{task.getEnd()}}</small>
-      </div>      
     </div>
   </div>
 </div>
