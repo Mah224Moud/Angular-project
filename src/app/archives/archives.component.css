@@ -1,4 +1,4 @@
-.global a:hover{
+.global > a:first-child:hover{
     color: cyan !important;
     border-bottom: orange 1px solid;
     transition: all ease-in-out 0.4s;

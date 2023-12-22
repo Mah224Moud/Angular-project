@@ -5,7 +5,7 @@
   <div class="container">
     <h2 class="">Liste des Tâches terminée</h2>
     <div class="d-flex flex-wrap justify-content-center">
-      <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-danger m-2" id="{{task.getId()}}">
+      <div *ngFor="let task of tasks" id="{{task.getId()}}" class="card border-danger m-2" appHighlightRow id="{{task.getId()}}">
         <div class="card-header text-center">
           {{task.getStatus()}} - {{task.getPriority()}} 
           <img src="../../assets/icons/patch-check-fill.svg" class="ms-1" title="Cette tâche comme été marquée terminée" alt="valid icon">
