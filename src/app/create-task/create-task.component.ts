@@ -21,6 +21,12 @@ errorMessage: string = '';
 
   constructor(private taskService: TaskService, private messageService: MessageService) { }
 
+  /**
+   * This method is triggered when the form is submitted. 
+   * It validates the form inputs and creates a new task if the inputs are valid.
+   * The new task is then emitted to the parent component and added to the task service.
+   * If the form inputs are not valid, it sets an error message.
+   */
   onSubmit() {
     if (this.newTaskName && this.newTaskPriority && this.newTaskDeadline && this.newTaskStartTime) {
       const validation = this.validateDates();
@@ -52,10 +58,21 @@ errorMessage: string = '';
     }
   }
 
+  /**
+   * Closes the alert by setting the status to undefined.
+   *
+   * @returns {void}
+   */
   closeAlert() {
     this.status = undefined;
   }
 
+  /**
+   * Resets all the form fields to their initial values.
+   * Typically called after a successful form submission.
+   *
+   * @returns {void}
+   */
   resetForm() {
     this.newTaskName = '';
     this.newTaskPriority = 'faible';
@@ -64,6 +81,16 @@ errorMessage: string = '';
     this.newTaskStartTime = '';
   }
 
+  /**
+   * Validates the start and end dates of the task.
+   * 
+   * This method checks if the start date is in the past, and if the end date is before the start date.
+   * If the start date is in the past, it returns an error message indicating that a task cannot be added in the past.
+   * If the end date is before the start date, it returns an error message indicating that a task cannot end before it starts.
+   * If both dates are valid, it returns null.
+   *
+   * @returns {string | null} - Returns a string if there is an error, null otherwise.
+   */
   validateDates(): string | null  {
     const startDate = new Date(this.newTaskStartTime);
     const endDate = new Date(this.newTaskDeadline);
@@ -79,6 +106,16 @@ errorMessage: string = '';
 
     return null;
   }
+
+  /**
+   * Checks the status of a task based on its start date.
+   * 
+   * This method compares the start date of the task with the current date.
+   * If the start date is in the past, it sets the task status to 'en cours'.
+   *
+   * @param {Task} task - The task to check.
+   * @returns {void}
+   */
   checkTaskStatus(task: Task) {
     const now = new Date();
     const taskStartDate = new Date(task.getStart());

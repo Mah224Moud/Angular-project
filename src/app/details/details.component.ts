@@ -14,6 +14,12 @@ export class DetailsComponent {
 
   constructor(private route: ActivatedRoute, private taskService: TaskService) { }
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+   * 
+   * In this case, it retrieves the task ID from the route parameters, and uses it to fetch the corresponding task from the task service.
+   * If the task is found, it is assigned to the 'task' property. If not, a message is logged to the console.
+   */
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {

@@ -12,6 +12,10 @@ export class ArchivesComponent implements OnInit {
 
   constructor(private taskService: TaskService) { }
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+   * Here it is used to set the 'tasks' property to the list of completed tasks retrieved from the task service.
+   */
   ngOnInit() {
     this.tasks = this.taskService.getCompletedTasks();
   }

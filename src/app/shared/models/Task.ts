@@ -7,6 +7,22 @@ export class Task{
     private priority: string;
     private status: string;
 
+    /**
+     * Constructor for the Task class.
+     * 
+     * It initializes a new Task object with the provided id, name, description, start date, end date, priority, and status.
+     * If no status is provided, it defaults to 'à faire'.
+     *
+     * @param {number} id - The ID of the task.
+     * @param {string} name - The name of the task.
+     * @param {string} description - The description of the task.
+     * @param {Date} start - The start date of the task.
+     * @param {Date} end - The end date of the task.
+     * @param {string} priority - The priority of the task.
+     * @param {string} status - The status of the task. Defaults to 'à faire'.
+     * 
+     * @returns {void}
+     */
     constructor(id: number, name: string, description: string, start: Date, end: Date, priority: string,status: string ="à faire"){
         this.id = id;
         this.name = name;
