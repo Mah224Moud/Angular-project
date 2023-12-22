@@ -24,8 +24,7 @@ export class TaskService {
         new Date(task.start), 
         new Date(task.end), 
         task.priority,
-        task.level, 
-        task.status));
+        task.level));
     } else {
       this.http.get<Task[]>('assets/data/tasks.json').subscribe(data => {
         this.tasks = data;

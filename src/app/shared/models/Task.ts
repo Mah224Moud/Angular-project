@@ -6,9 +6,8 @@ export class Task{
     private end: Date;
     private priority: string;
     private status: string;
-    private level: number;
 
-    constructor(id: number, name: string, description: string, start: Date, end: Date, priority: string, level: number ,status: string ="à faire"){
+    constructor(id: number, name: string, description: string, start: Date, end: Date, priority: string,status: string ="à faire"){
         this.id = id;
         this.name = name;
         this.description = description;
@@ -16,7 +15,7 @@ export class Task{
         this.end = end;
         this.priority = priority;
         this.status = status;
-        this.level = level;
+       
     }
 
     /**
@@ -158,22 +157,7 @@ export class Task{
         this.status = status;
     }
 
-    /**
-     * Retrieves the current level.
-     *
-     * @return {number} The current level.
-     */
-    public getLevel(){
-        return this.level;
-    }
-    /**
-     * Sets the level of the object to the specified level.
-     *
-     * @param {number} level - The new level to set.
-     */
-    public setLevel(level: number){
-        this.level = level;
-    }
+   
 
     /**
      * Returns a string representation of the object.
@@ -181,7 +165,6 @@ export class Task{
      * @return {string} A string representation of the object.
      */
     public toString(){
-        return this.name + " " + this.description + " " + this.start + " " + this.end + " " + this.priority + " " + this.status + " " + this.level
-    }
+        return this.name + " " + this.description + " " + this.start + " " + this.end + " " + this.priority + " " + this.status }
 
 }

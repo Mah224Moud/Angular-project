@@ -36,8 +36,7 @@ errorMessage: string = '';
         this.newTaskDescription,
         new Date(this.newTaskStartTime), 
         new Date(this.newTaskDeadline), 
-        this.newTaskPriority,
-        0 
+        this.newTaskPriority 
       );
 
       this.checkTaskStatus(newTask);

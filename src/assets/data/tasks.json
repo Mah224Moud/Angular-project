@@ -1,22 +1,128 @@
 [
     {
         "id": 1,
-        "name": "Faire les courses",
-        "description": "Acheter des ingrédients pour le dîner",
-        "start": "2023-12-01T01:16:00.000Z",
-        "end": "2023-12-01T01:16:00.000Z",
+        "name": "Faire la lessive",
+        "description": "Laver les vêtements",
+        "start": "2024-01-15T10:30:00.000Z",
+        "end": "2024-01-15T12:00:00.000Z",
         "priority": "moyenne",
-        "status": "à faire",
-        "level": 1
+        "status": "terminée"
     },
     {
         "id": 2,
-        "name": "Répondre aux emails",
-        "description": "Répondre aux emails professionnels",
-        "start": "2023-12-01T01:16:00.000Z",
-        "end": "2023-12-01T01:16:00.000Z",
+        "name": "Nettoyer la cuisine",
+        "description": "Nettoyer la cuisine après le dîner",
+        "start": "2024-02-14T20:00:00.000Z",
+        "end": "2024-02-14T21:30:00.000Z",
+        "priority": "moyenne",
+        "status": "terminée"
+    },
+    {
+        "id": 3,
+        "name": "Passer l'aspirateur et dépoussiérer",
+        "description": "Aspirer et dépoussiérer toutes les pièces",
+        "start": "2024-03-12T09:00:00.000Z",
+        "end": "2024-03-12T11:00:00.000Z",
         "priority": "élevée",
-        "status": "en cours",
-        "level": 2
+        "status": "terminée"
+    },
+    {
+        "id": 4,
+        "name": "Nettoyer la salle de bain",
+        "description": "Nettoyer la salle de bain et les toilettes",
+        "start": "2024-04-10T14:00:00.000Z",
+        "end": "2024-04-10T15:30:00.000Z",
+        "priority": "moyenne",
+        "status": "terminée"
+    },
+    {
+        "id": 5,
+        "name": "Balayer et laver les sols",
+        "description": "Balayer et laver les sols dans toutes les pièces",
+        "start": "2024-05-08T11:00:00.000Z",
+        "end": "2024-05-08T12:30:00.000Z",
+        "priority": "moyenne",
+        "status": "terminée"
+    },
+    {
+        "id": 6,
+        "name": "Faire le lit",
+        "description": "Refaire le lit avec des draps propres",
+        "start": "2024-06-06T08:00:00.000Z",
+        "end": "2024-06-06T08:15:00.000Z",
+        "priority": "faible",
+        "status": "terminée"
+    },
+    {
+        "id": 7,
+        "name": "Arroser les plantes d'intérieur",
+        "description": "Arroser les plantes d'intérieur",
+        "start": "2024-07-05T17:00:00.000Z",
+        "end": "2024-07-05T17:15:00.000Z",
+        "priority": "faible",
+        "status": "terminée"
+    },
+    {
+        "id": 8,
+        "name": "Trier et ranger",
+        "description": "Organiser et ranger la maison",
+        "start": "2024-08-03T13:00:00.000Z",
+        "end": "2024-08-03T15:00:00.000Z",
+        "priority": "moyenne",
+        "status": "terminée"
+    },
+    {
+        "id": 9,
+        "name": "Préparer les repas",
+        "description": "Préparer le dîner",
+        "start": "2024-09-01T18:30:00.000Z",
+        "end": "2024-09-01T19:30:00.000Z",
+        "priority": "élevée",
+        "status": "terminée"
+    },
+    {
+        "id": 10,
+        "name": "Vider les poubelles",
+        "description": "Vider les poubelles de toutes les pièces",
+        "start": "2024-10-31T09:00:00.000Z",
+        "end": "2024-10-31T09:15:00.000Z",
+        "priority": "faible",
+        "status": "à faire"
+    },
+    {
+        "id": 11,
+        "name": "Nettoyer les vitres",
+        "description": "Nettoyer les vitres intérieures et extérieures",
+        "start": "2024-11-30T14:00:00.000Z",
+        "end": "2024-11-30T16:00:00.000Z",
+        "priority": "moyenne",
+        "status": "à faire"
+    },
+    {
+        "id": 12,
+        "name": "Faire le tri dans le courrier",
+        "description": "Trier le courrier et gérer les documents",
+        "start": "2024-12-29T10:30:00.000Z",
+        "end": "2024-12-29T11:00:00.000Z",
+        "priority": "faible",
+        "status": "à faire"
+    },
+    {
+        "id": 13,
+        "name": "Entretenir le jardin",
+        "description": "Tailler les arbustes et entretenir le jardin",
+        "start": "2024-02-27T15:00:00.000Z",
+        "end": "2024-02-27T17:00:00.000Z",
+        "priority": "moyenne",
+        "status": "à faire"
+    },
+    {
+        "id": 14,
+        "name": "Faire l'inventaire des produits ménagers",
+        "description": "Vérifier les produits de nettoyage et d'entretien",
+        "start": "2024-03-26T16:00:00.000Z",
+        "end": "2024-03-26T17:30:00.000Z",
+        "priority": "faible",
+        "status": "à faire"
     }
 ]

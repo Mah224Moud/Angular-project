@@ -16,7 +16,9 @@ input, textarea{
     border-radius: 5px;
 }
 textarea{
+    height: 200px;
     resize: none;
+    width: 300px;
 }
 .btn{
     display: flex;

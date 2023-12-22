@@ -18,6 +18,8 @@ input, textarea{
     border-radius: 5px;
 }
 textarea{
+    height: 200px;
+    width: 300px;
     resize: none;
 }
 .btn{
