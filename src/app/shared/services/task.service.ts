@@ -24,6 +24,17 @@ export class TaskService {
   }
 
   /**
+   * Set the tasks array with the given array of task data.
+   *
+   * @param {any[]} tasks - The array of task data.
+   * @return {void} This function does not return a value.
+   */
+  setTasks(tasks: any[]): void {
+    this.tasks = tasks.map(taskData => new Task(taskData.id, taskData.name, taskData.description, new Date(taskData.start), new Date(taskData.end), taskData.priority, taskData.status));
+    this.tasksUpdatedSource.next(this.tasks);
+  }
+
+  /**
    * Loads tasks from local storage or from the server.
    * 
    * This method first checks if there are any tasks saved in local storage. If there are, it loads them and converts them into Task objects.
@@ -41,10 +52,13 @@ export class TaskService {
         new Date(task.end), 
         task.priority,
         task.level));
+      this.tasksUpdatedSource.next(this.tasks);
     } else {
       this.http.get<Task[]>('assets/data/tasks.json').subscribe(data => {
         this.tasks = data;
         this.saveTasks();
+        this.tasksUpdatedSource.next(this.tasks);
+        this.setTasks(this.tasks);
       });
     }
   }
@@ -72,7 +86,6 @@ export class TaskService {
     this.tasks.forEach(task => {
       this.checkAndUpdateTaskStatus(task);
     });
-
     return this.tasks.filter(task => task.getStatus() !== 'terminée');
   }
 

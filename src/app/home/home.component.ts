@@ -20,7 +20,6 @@ export class HomeComponent {
    * It injects the TaskService and MessageService, and initializes the 'tasks' property with all tasks retrieved from the TaskService.
    */
   constructor(private taskService: TaskService, private messageService: MessageService) {
-    this.tasks = this.taskService.getAllTasks();
   }
 
   /**
@@ -32,8 +31,9 @@ export class HomeComponent {
    * Similarly, when a new status message is received, it updates the 'statusMessage' property and resets the status message after a certain time.
    */
   ngOnInit() {
-    this.taskService.tasksUpdated$.subscribe(tasks => {
-      this.tasks = tasks;
+    this.tasks = this.taskService.getAllTasks();
+    this.taskService.tasksUpdated$.subscribe(tasksList => {
+      this.tasks = tasksList;
     });
 
     this.messageService.currentMessage.subscribe(message => {
